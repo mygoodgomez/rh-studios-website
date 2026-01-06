@@ -34,7 +34,6 @@ body {
   --dark-text: #2C2C2C;
   --blue-section: #5B8FA3;
   --orange-accent: #cf9778;
-  --coral: #D4887D;
   --white: #FFFFFF;
 
   /* Typography */
@@ -44,7 +43,7 @@ body {
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
   --spacing-md: 2rem;
-  --spacing-lg: 4rem;
+  --spacing-lg: 3rem;
   --spacing-xl: 6rem;
   --spacing-xxl: 8rem;
 
@@ -73,7 +72,7 @@ h1 {
 }
 
 h2 {
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: clamp(2rem, 7vw, 6rem);
   font-weight: 700;
 }
 
@@ -378,7 +377,6 @@ section {
   background-color: var(--white);
   padding: var(--spacing-lg);
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .class-item h3 {
@@ -499,7 +497,6 @@ section {
   background-color: var(--white);
   padding: var(--spacing-lg);
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .instructor-bio h3 {
@@ -620,7 +617,7 @@ section {
    13. PRICING SECTION
    ==================================== */
 .pricing-section {
-  background-color: var(--coral);
+  background-color: var(--orange-accent);
   color: var(--white);
 }
 
