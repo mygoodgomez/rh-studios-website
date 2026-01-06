@@ -17,7 +17,7 @@ html {
 }
 
 body {
-  font-family: 'League Spartan', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   line-height: 1.6;
   color: var(--dark-text);
   background-color: var(--cream);
@@ -32,9 +32,8 @@ body {
   --cream: #F5F1E8;
   --cream-dark: #E8E1D3;
   --dark-text: #2C2C2C;
-  --green-accent: #4A7C59;
   --blue-section: #5B8FA3;
-  --orange-accent: #E88B5C;
+  --orange-accent: #cf9778;
   --coral: #D4887D;
   --white: #FFFFFF;
 
@@ -58,13 +57,18 @@ body {
    3. TYPOGRAPHY
    ==================================== */
 h1, h2, h3, h4, h5, h6 {
+  font-family: 'League Spartan', sans-serif;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: var(--spacing-sm);
 }
 
+h2 {
+  text-transform: uppercase;
+}
+
 h1 {
-  font-size: clamp(3rem, 6vw, 6rem);
+  font-size: clamp(3rem, 8vw, 8rem);
   font-weight: 800;
 }
 
@@ -95,7 +99,7 @@ a {
 }
 
 a:hover {
-  color: var(--green-accent);
+  color: var(--orange-accent);
 }
 
 img {
@@ -172,7 +176,6 @@ section {
 .nav-link {
   font-size: 1rem;
   font-weight: 500;
-  letter-spacing: 0.05em;
   padding: var(--spacing-xs) var(--spacing-sm);
   border-radius: 4px;
   transition: all 0.3s ease;
@@ -183,7 +186,7 @@ section {
 }
 
 .nav-link.active {
-  color: var(--green-accent);
+  color: var(--orange-accent);
   background-color: var(--cream-dark);
 }
 
@@ -209,7 +212,7 @@ section {
    6. HERO SECTION
    ==================================== */
 .hero-section {
-  min-height: 100vh;
+  height: calc(100vh - var(--header-height));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -232,14 +235,13 @@ section {
 }
 
 .hero-content {
-  padding: var(--spacing-lg);
+  padding: var(--spacing-md);
   position: relative;
   z-index: 1;
 }
 
 .hero-title {
-  letter-spacing: 0.15em;
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
   color: var(--cream);
 }
 
@@ -251,11 +253,52 @@ section {
   color: var(--cream);
 }
 
+.hero-location {
+  position: absolute;
+  bottom: var(--spacing-lg);
+  left: var(--spacing-md);
+  color: var(--cream);
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  z-index: 1;
+}
+
+.hero-location a {
+  color: var(--cream);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.hero-location a:hover {
+  opacity: 0.8;
+}
+
+.hero-founders {
+  position: absolute;
+  bottom: var(--spacing-lg);
+  right: var(--spacing-md);
+  color: var(--cream);
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-align: right;
+  z-index: 1;
+}
+
+.hero-founders div {
+  margin-bottom: var(--spacing-xs);
+}
+
+.hero-founders div:last-child {
+  margin-bottom: 0;
+}
+
 /* ====================================
    7. ABOUT SECTION
    ==================================== */
 .about-section {
-  background-color: var(--white);
+  background-color: var(--dark-text);
 }
 
 .about-layout {
@@ -269,104 +312,109 @@ section {
 }
 
 .about-text h2 {
-  color: var(--dark-text);
+  color: var(--cream);
   margin-bottom: var(--spacing-md);
 }
 
 .about-text p {
-  color: var(--dark-text);
+  color: var(--cream);
   margin-bottom: var(--spacing-md);
 }
 
 .about-image {
-  flex: 0 0 45%;
+  flex: 0 0 35%;
+  aspect-ratio: 12 / 16;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .about-image img {
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 /* ====================================
    8. CLASSES SECTION
    ==================================== */
 .classes-section {
-  background-color: var(--cream-dark);
-  background-image: url('images/abstract-art.jpg');
-  background-size: cover;
-  background-position: center;
-  background-blend-mode: soft-light;
-  position: relative;
-}
-
-.classes-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(245, 241, 232, 0.9);
-}
-
-.classes-section .container {
-  position: relative;
-  z-index: 1;
+  background-color: #E8E8E8;
 }
 
 .section-title {
   text-align: center;
   letter-spacing: 0.08em;
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
   color: var(--dark-text);
 }
 
-.classes-intro {
+.classes-instructors {
   text-align: center;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto var(--spacing-lg);
+  padding: var(--spacing-md);
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
 }
 
-.classes-intro p {
-  font-size: clamp(1.125rem, 2vw, 1.375rem);
+.classes-instructors p {
+  margin-bottom: var(--spacing-xs);
+  font-size: 1rem;
 }
 
-.classes-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--spacing-md);
-  margin-top: var(--spacing-lg);
+.classes-instructors p:last-child {
+  margin-bottom: 0;
+}
+
+.classes-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
 }
 
 .class-item {
   background-color: var(--white);
-  padding: var(--spacing-md);
+  padding: var(--spacing-lg);
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.class-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .class-item h3 {
-  color: var(--green-accent);
+  color: var(--orange-accent);
   margin-bottom: var(--spacing-sm);
+  font-size: 1.75rem;
+}
+
+.class-item p {
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.7;
+}
+
+.class-item p:last-child {
+  margin-bottom: 0;
+}
+
+.class-note {
+  font-style: italic;
+  color: var(--dark-text);
+  opacity: 0.8;
+  font-size: 0.95rem;
 }
 
 /* ====================================
    9. TEAM SECTION
    ==================================== */
 .team-section {
-  background-color: var(--white);
+  background-color: var(--dark-text);
 }
 
 .team-section h2 {
   text-align: center;
   letter-spacing: 0.08em;
   margin-bottom: var(--spacing-lg);
+  color: var(--cream);
 }
 
 .team-grid {
@@ -377,44 +425,107 @@ section {
 
 .team-card {
   text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.team-card:hover {
-  transform: translateY(-8px);
 }
 
 .team-image {
   margin-bottom: var(--spacing-sm);
   overflow: hidden;
   border-radius: 8px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  aspect-ratio: 1 / 2;
 }
 
 .team-image img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.team-card:hover .team-image img {
-  transform: scale(1.05);
+  object-position: center;
 }
 
 .team-info h3 {
-  font-size: 1.25rem;
+  font-size: 2rem;
   margin-bottom: var(--spacing-xs);
+  color: var(--cream);
 }
 
 .team-role {
-  color: var(--green-accent);
+  color: var(--cream);
   font-size: 1rem;
   font-weight: 500;
+  opacity: 0.8;
+}
+
+/* Shift Rosanny's portrait to the left */
+.team-card:first-child .team-image img {
+  object-position: -70px center;
+}
+
+/* Shift Eric's portrait to the right */
+.team-card:nth-child(2) .team-image img {
+  object-position: 0px center;
+}
+
+/* Shift Medina's portrait to the left */
+.team-card:nth-child(3) .team-image img {
+  object-position: -252px center;
+}
+
+/* Shift Alexander's portrait to the right */
+.team-card:nth-child(4) .team-image img {
+  object-position: -20px center;
 }
 
 /* ====================================
-   10. ALEXANDER TECHNIQUE SECTION
+   10. INSTRUCTORS SECTION
+   ==================================== */
+.instructors-section {
+  background-color: var(--orange-accent);
+}
+
+.instructors-section h2 {
+  text-align: center;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--spacing-lg);
+  color: var(--dark-text);
+}
+
+.instructors-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.instructor-bio {
+  background-color: var(--white);
+  padding: var(--spacing-lg);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.instructor-bio h3 {
+  color: var(--orange-accent);
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.5rem;
+}
+
+.instructor-bio p {
+  line-height: 1.7;
+  margin-bottom: var(--spacing-sm);
+}
+
+.instructor-bio p:last-child {
+  margin-bottom: 0;
+}
+
+.instructor-quote {
+  font-style: italic;
+  padding-left: var(--spacing-md);
+  border-left: 4px solid var(--orange-accent);
+  margin-top: var(--spacing-md);
+}
+
+/* ====================================
+   11. ALEXANDER TECHNIQUE SECTION
    ==================================== */
 .alexander-section {
   background-color: var(--cream);
@@ -423,7 +534,16 @@ section {
 .alexander-section h2 {
   text-align: center;
   letter-spacing: 0.08em;
+  margin-bottom: var(--spacing-xs);
+}
+
+.alexander-subheading {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--dark-text);
   margin-bottom: var(--spacing-lg);
+  font-style: italic;
 }
 
 .alexander-layout {
@@ -437,7 +557,7 @@ section {
 }
 
 .alexander-text h3 {
-  color: var(--green-accent);
+  color: var(--orange-accent);
   margin-bottom: var(--spacing-md);
 }
 
@@ -456,7 +576,7 @@ section {
   content: '•';
   position: absolute;
   left: 0;
-  color: var(--green-accent);
+  color: var(--orange-accent);
   font-size: 1.5rem;
   line-height: 1;
 }
@@ -471,7 +591,33 @@ section {
 }
 
 /* ====================================
-   11. PRICING SECTION
+   12. WHY ALEXANDER TECHNIQUE SECTION
+   ==================================== */
+.why-alexander-section {
+  background-color: var(--dark-text);
+}
+
+.why-alexander-section h2 {
+  text-align: center;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--spacing-lg);
+  color: var(--cream);
+}
+
+.why-alexander-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.why-alexander-content p {
+  color: var(--cream);
+  font-size: 1.125rem;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* ====================================
+   13. PRICING SECTION
    ==================================== */
 .pricing-section {
   background-color: var(--coral);
@@ -536,10 +682,29 @@ section {
    12. CTA SECTION
    ==================================== */
 .cta-section {
+  background-image: url('images/building-exterior.png');
+  background-size: cover;
+  background-position: center;
   background-color: var(--blue-section);
   color: var(--white);
   text-align: center;
   padding: var(--spacing-xxl) 0;
+  position: relative;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.cta-section .container {
+  position: relative;
+  z-index: 2;
 }
 
 .cta-title {
@@ -568,7 +733,7 @@ section {
 }
 
 .cta-button:hover {
-  background-color: var(--green-accent);
+  background-color: var(--orange-accent);
   color: var(--white);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
@@ -607,7 +772,7 @@ section {
 }
 
 .footer-column a:hover {
-  color: var(--green-accent);
+  color: var(--orange-accent);
 }
 
 .social-links {
@@ -697,6 +862,19 @@ section {
   .mobile-menu-toggle.active .hamburger:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -7px);
   }
+
+  /* Hero bottom text stacking */
+  .hero-location {
+    bottom: calc(var(--spacing-lg) + 3rem);
+    left: var(--spacing-sm);
+  }
+
+  .hero-founders {
+    bottom: var(--spacing-lg);
+    left: var(--spacing-sm);
+    right: auto;
+    text-align: left;
+  }
 }
 
 /* ====================================
@@ -746,7 +924,26 @@ section {
   }
 
   .hero-section {
-    min-height: 80vh;
+    height: calc(100vh - var(--header-height));
+  }
+
+  /* Hero bottom text stacking for mobile */
+  .hero-location {
+    bottom: calc(var(--spacing-md) + 2.5rem);
+    left: var(--spacing-sm);
+    font-size: 0.75rem;
+  }
+
+  .hero-founders {
+    bottom: var(--spacing-md);
+    left: var(--spacing-sm);
+    right: auto;
+    text-align: left;
+    font-size: 0.75rem;
+  }
+
+  .hero-founders div {
+    margin-bottom: 0.25rem;
   }
 }
 
@@ -763,6 +960,6 @@ section {
 
 /* Focus visible styles for keyboard navigation */
 *:focus-visible {
-  outline: 2px solid var(--green-accent);
+  outline: 2px solid var(--orange-accent);
   outline-offset: 2px;
 }
